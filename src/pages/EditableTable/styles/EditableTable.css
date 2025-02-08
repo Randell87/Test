@@ -19,4 +19,5 @@ table {
   height: 50vh;
   width: 80%;
   max-width: 1600px;
+  max-height: 400px;
 }
