@@ -58,9 +58,9 @@ const EditableTable = () => {
     updatedData[rowIndex][colIndex].value = validatedValue;
     setData(updatedData);
 
-    setIsSending(false);
+    setIsSending(false); //останавливаем загрузку
 
-    if (JSON.stringify(updatedData) !== JSON.stringify(initialData)) {
+    if (JSON.stringify(updatedData) !== JSON.stringify(initialData)) { //сравниваем со старым значением
       if (validatedValue === initialData[rowIndex][colIndex].value) {
         setEditedCells((prev) => {
           const newEdits = { ...prev };
@@ -69,8 +69,10 @@ const EditableTable = () => {
           // delete newEdits[cell.id];
           return newEdits;
         });
+      } else {
+        setEditedCells((prev) => ({ ...prev, [cell.name]: validatedValue }));
       }
-      setEditedCells((prev) => ({ ...prev, [cell.name]: validatedValue }));
+      
       // Вариант с id
       // setEditedCells((prev) => ({ ...prev, [cell.id]: validatedValue }));
       if (timer) clearTimeout(timer);
