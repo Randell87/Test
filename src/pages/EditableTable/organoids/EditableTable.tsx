@@ -71,10 +71,10 @@ const EditableTable = () => {
         });
       } else {
         setEditedCells((prev) => ({ ...prev, [cell.name]: validatedValue }));
-      }
+        // Вариант с id
+        // setEditedCells((prev) => ({ ...prev, [cell.id]: validatedValue }));
+      }      
       
-      // Вариант с id
-      // setEditedCells((prev) => ({ ...prev, [cell.id]: validatedValue }));
       if (timer) clearTimeout(timer);
       setTimer(
         setTimeout(() => {
